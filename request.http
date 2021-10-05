@@ -1,0 +1,57 @@
+post http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "hoa",
+    "password": "hoa"
+}
+
+###
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "henry2",
+    "password": "henry"
+}
+
+###
+GET http://localhost:4000/api/post
+
+###
+GET http://localhost:4000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM3OTlmODY1YWI2MDllODFiOGM4YTQiLCJpYXQiOjE2MzE2Mzg2MTh9.qhk8d3PBOuTGQjbb2PrCGA8L6Bczc_hKhGoSsoOzKZE
+
+###
+POST http://localhost:4000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM3OTlmODY1YWI2MDllODFiOGM4YTQiLCJpYXQiOjE2MzE4NjMyNDF9.dKUFI1W_OZaOB57w7vi3_YxyxHiRcNHjCOoAg85Yh88
+
+{
+    "title": "Vue",
+    "description": "Vuejs",
+    "url": "vuejs.org",
+    "status": "LEARNED"
+}
+
+###
+GET http://localhost:4000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM3OTlmODY1YWI2MDllODFiOGM4YTQiLCJpYXQiOjE2MzEwNzgxNjB9.tQ1S8CUuXM0spWg5OJrvaTCAcpRGCTMWX5I5z5ZUVHE
+
+
+###
+PUT http://localhost:4000/api/posts/613838caaa7a4e4b975e81cc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM3OTlmODY1YWI2MDllODFiOGM4YTQiLCJpYXQiOjE2MzEwNzgxNjB9.tQ1S8CUuXM0spWg5OJrvaTCAcpRGCTMWX5I5z5ZUVHE
+
+{
+    "title": "Mongo DB",
+    "description": "mongo database",
+    "url": "https://mongodb.com.vn",
+    "status": "LEARNING"
+}
+
+
+###
+DELETE  http://localhost:4000/api/posts/61382da6ee93de2d5c1e0f47
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM3OTlmODY1YWI2MDllODFiOGM4YTQiLCJpYXQiOjE2MzEwNzgxNjB9.tQ1S8CUuXM0spWg5OJrvaTCAcpRGCTMWX5I5z5ZUVHE
