@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Argon2 = require('argon2');
+const md5 = require('md5')
 const jwt = require('jsonwebtoken');
 const verifyToken = require('../middleware/auth');
 const User = require('../model/user');
@@ -46,7 +46,7 @@ router.post('/register', async (req, res) => {
             .json({success: false, message: 'User already taken'});
         }
         // All good
-        const hashedPassword = await Argon2.hash(password);
+        const hashedPassword = await md5(password);
         const newUser = new User({username, password: hashedPassword});
         await newUser.save();
 
@@ -81,9 +81,8 @@ router.post('/login', async (req, res) => {
             .status(400)
             .json({success: false, message: "User not found"});
         }
-
-        const passwordValid = await Argon2.verify(user.password, password);
-        if(!passwordValid) {
+        
+        if(user.password !== md5(password)) {
             return res
             .status(400)
             .json({success: false, message: "Wrong Pasword"});
